@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    // ✅ Check before anything else loads
+    if (localStorage.getItem("adminLoggedIn") !== "true") {
+      window.location.href = "admin-login.html";
+    }
+  </script>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+
+  <label for="timeSlot">Select Time Slot:</label>
+  <select id="timeSlot"></select>
+  <br><br>
+
+  <label for="numberInput">Enter Number:</label>
+  <input type="number" id="numberInput" placeholder="Enter a number" required>
+  <br><br>
+
+  <button id="saveBtn">Save Number</button>
+  <p id="status"></p>
+
+  <br>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("adminLoggedIn");
+      window.location.href = "admin-login.html";
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
